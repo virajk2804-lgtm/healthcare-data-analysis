@@ -20,7 +20,7 @@ I wanted a project that covers the full analytics workflow: checking data qualit
 - **Excel**:- cleaning and analysis   
 - **PostgreSQL**:- answering business questions with SQL  
 - **Power BI**:- dashboard and visuals
-- **GitHub**:- version control and documentation
+- **Git and GitHub:** version control and project hosting
 
 ## What I did ?
 
@@ -55,6 +55,10 @@ All queries are in sql/queries.sql. I compared the results with my Excel pivot t
 - **Bar chart:** total billing by insurance provider
 - **Line chart:** monthly admissions trend
 - **Donut chart:** admissions by type
+
+**6. Version control** 
+
+I used Git to track my changes and push the project to GitHub.
 
 Dashboard
 
