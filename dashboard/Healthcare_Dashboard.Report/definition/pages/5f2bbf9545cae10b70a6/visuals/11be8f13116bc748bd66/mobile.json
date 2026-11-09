@@ -1,0 +1,32 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainerMobileState/2.8.0/schema.json",
+  "position": {
+    "x": 0,
+    "y": 0,
+    "z": 7001,
+    "height": 102.02076124567475,
+    "width": 324,
+    "tabOrder": 7001
+  },
+  "objects": {
+    "general": [
+      {
+        "properties": {
+          "paragraphs": [
+            {
+              "textRuns": [
+                {
+                  "value": "Healthcare Admissions Dashboard",
+                  "textStyle": {
+                    "fontSize": "24pt",
+                    "color": "#12239e"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Healthcare_Dashboard"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "cebe4950-b514-4441-85c2-b2c62721f30e"
+  }
+}

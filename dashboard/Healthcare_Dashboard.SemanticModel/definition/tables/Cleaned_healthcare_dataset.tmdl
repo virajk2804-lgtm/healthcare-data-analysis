@@ -1,0 +1,189 @@
+table Cleaned_healthcare_dataset
+	lineageTag: 866dc90f-c9fa-4fb0-ba09-0b53977719b4
+
+	measure 'Total Patients' = COUNTROWS(Cleaned_healthcare_dataset)
+		formatString: 0
+		lineageTag: cc646af3-956b-4c8a-9308-ff71675b66e5
+
+	measure 'Abnormal %' = DIVIDE(CALCULATE(COUNTROWS(Cleaned_healthcare_dataset), Cleaned_healthcare_dataset[Test Results] = "Abnormal"), COUNTROWS(Cleaned_healthcare_dataset))
+		lineageTag: b4ac7299-3a7c-4f83-8292-7a136055fd9f
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Name
+		dataType: string
+		lineageTag: b2e70db8-fe79-48ec-a89e-bedfe08858d0
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Age
+		dataType: int64
+		formatString: 0
+		lineageTag: 379fbe49-b70c-4a17-ac82-70abe4b56be0
+		summarizeBy: sum
+		sourceColumn: Age
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Age Group'
+		dataType: string
+		lineageTag: f6000b3e-8345-473d-bb17-2fac21bf7afe
+		summarizeBy: none
+		sourceColumn: Age Group
+
+		annotation SummarizationSetBy = Automatic
+
+	column Gender
+		dataType: string
+		lineageTag: 02fc8484-c80c-44fe-95af-05e2a3717048
+		summarizeBy: none
+		sourceColumn: Gender
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Blood Type'
+		dataType: string
+		lineageTag: de340776-1977-4393-928a-509b2891b1e2
+		summarizeBy: none
+		sourceColumn: Blood Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Medical Condition'
+		dataType: string
+		lineageTag: 1ecea161-4f1c-45e5-bf62-4c2830694e92
+		summarizeBy: none
+		sourceColumn: Medical Condition
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Date of Admission'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: c8db83b0-9df3-4c0f-b39c-6cdd25ee0c55
+		summarizeBy: none
+		sourceColumn: Date of Admission
+
+		variation Variation
+			isDefault
+			relationship: 599d56d9-2962-49e4-997b-43028138c111
+			defaultHierarchy: LocalDateTable_2c6efd43-629b-4024-bed3-d5402c03b425.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Admission Month'
+		dataType: string
+		lineageTag: eb86b429-e70c-4229-8075-a3e19df7722b
+		summarizeBy: none
+		sourceColumn: Admission Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column Doctor
+		dataType: string
+		lineageTag: da6da83a-3719-436d-87aa-9523fde0fc6e
+		summarizeBy: none
+		sourceColumn: Doctor
+
+		annotation SummarizationSetBy = Automatic
+
+	column Hospital
+		dataType: string
+		lineageTag: 88e3541c-4633-4d44-8969-f83b9d8b93d4
+		summarizeBy: none
+		sourceColumn: Hospital
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Insurance Provider'
+		dataType: string
+		lineageTag: c4550b22-a46c-44ad-906b-e15e6396b5b2
+		summarizeBy: none
+		sourceColumn: Insurance Provider
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Billing Amount'
+		dataType: double
+		lineageTag: f311fb17-2172-4f56-8e5a-6887c5a9e4e3
+		summarizeBy: sum
+		sourceColumn: Billing Amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Room Number'
+		dataType: int64
+		formatString: 0
+		lineageTag: b9f9a40d-7e34-4909-aa1d-f0f56db37a36
+		summarizeBy: sum
+		sourceColumn: Room Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Admission Type'
+		dataType: string
+		lineageTag: d545a577-568f-4524-89c0-83b311444aac
+		summarizeBy: none
+		sourceColumn: Admission Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Discharge Date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: a5c8ba08-1f88-4fbf-97bc-fe04ce31719c
+		summarizeBy: none
+		sourceColumn: Discharge Date
+
+		variation Variation
+			isDefault
+			relationship: 1c76bb54-0d56-4a67-912d-acbf4c567493
+			defaultHierarchy: LocalDateTable_45ea0ef8-8b12-43b8-8c8e-f74f7779a1c8.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Stay Length '
+		dataType: int64
+		formatString: 0
+		lineageTag: c1e140ce-193a-425f-a5a6-9ba184cc0cf7
+		summarizeBy: sum
+		sourceColumn: "Stay Length "
+
+		annotation SummarizationSetBy = Automatic
+
+	column Medication
+		dataType: string
+		lineageTag: d26afd77-f495-44d8-999e-d55d432c55f4
+		summarizeBy: none
+		sourceColumn: Medication
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Test Results'
+		dataType: string
+		lineageTag: fde3bcce-4d98-4130-876a-cbf5c9831b6c
+		summarizeBy: none
+		sourceColumn: Test Results
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Cleaned_healthcare_dataset = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("D:\healthcare-admissions-analysis\data\Cleaned_healthcare_dataset.csv"),[Delimiter=",", Columns=18, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Name", type text}, {"Age", Int64.Type}, {"Age Group", type text}, {"Gender", type text}, {"Blood Type", type text}, {"Medical Condition", type text}, {"Date of Admission", type date}, {"Admission Month", type text}, {"Doctor", type text}, {"Hospital", type text}, {"Insurance Provider", type text}, {"Billing Amount", type number}, {"Room Number", Int64.Type}, {"Admission Type", type text}, {"Discharge Date", type date}, {"Stay Length ", Int64.Type}, {"Medication", type text}, {"Test Results", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

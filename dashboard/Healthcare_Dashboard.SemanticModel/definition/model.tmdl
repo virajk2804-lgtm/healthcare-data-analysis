@@ -1,0 +1,22 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-IN
+	valueFilterBehavior: independent
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["Cleaned_healthcare_dataset"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table Cleaned_healthcare_dataset
+ref table DateTableTemplate_2ded6d7a-e385-4af7-8771-c2954226c7ca
+ref table LocalDateTable_2c6efd43-629b-4024-bed3-d5402c03b425
+ref table LocalDateTable_45ea0ef8-8b12-43b8-8c8e-f74f7779a1c8
+
+ref cultureInfo en-US
+

@@ -1,0 +1,10 @@
+relationship 599d56d9-2962-49e4-997b-43028138c111
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Cleaned_healthcare_dataset.'Date of Admission'
+	toColumn: LocalDateTable_2c6efd43-629b-4024-bed3-d5402c03b425.Date
+
+relationship 1c76bb54-0d56-4a67-912d-acbf4c567493
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Cleaned_healthcare_dataset.'Discharge Date'
+	toColumn: LocalDateTable_45ea0ef8-8b12-43b8-8c8e-f74f7779a1c8.Date
+
