@@ -31,7 +31,7 @@ I found 106 rows (0.19%) with negative billing. Since the data is synthetic, I t
 
 Length of Stay:- discharge date minus admission date  
 Age Group:- 0-18, 19-35, 36-50, 51-65, 66+  
-Admission Month:- formatted as yyyy-mm so months sort correctly
+Admission Month:- formatted as mmmm so months sort correctly
 
 **3.** Excel analysis I built pivot tables to answer six questions: most common conditions, average billing by condition, total billing by insurer, length of stay by admission type, abnormal test results by age group, and the monthly admission trend. The workbook also has a Summary sheet with the key insights.
 
